@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>HTMX sanity check</h1>
+
+  <p>
+    Count: <span id="count">{{ count }}</span>
+  </p>
+
+  <input type="hidden" name="count" value="{{ count }}"/>
+
+  <button
+    hx-post="/increment"
+    hx-include="[name='count']"
+    hx-target="#count"
+    hx-swap="outerHTML"
+  >
+    Increment
+  </button>
+{% endblock %}
