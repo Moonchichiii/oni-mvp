@@ -1,0 +1,7 @@
+<ul>
+  {% for s in services %}
+    <li>{{ s.name }} <small>({{ s.created_at }})</small></li>
+  {% else %}
+    <li><em>No services yet.</em></li>
+  {% endfor %}
+</ul>
