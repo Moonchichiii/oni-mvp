@@ -41,7 +41,7 @@ This project follows clean architecture principles with clear separation between
 
 ## Project Structure
 
-bash```
+```plaintext
 oni-mvp/
 ├── app/                          # Python application package (FastAPI)
 │   ├── main.py                   # App factory + wiring (routers, static, logging)
@@ -89,7 +89,7 @@ oni-mvp/
 ├── .gitattributes
 ├── .env                          # local only, never commit secrets
 └── README.md
-bash```
+```
 
 ### Why This Structure?
 

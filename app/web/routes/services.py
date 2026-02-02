@@ -35,9 +35,8 @@ def add_service(request: Request, name: str = Form(...)) -> HTMLResponse:
     except RepoError as exc:
         error = exc.message
 
-    services = repo.list_services() if error is None else repo.list_services()
+    services = repo.list_services()
 
-    # Return a multi-fragment response (OOB swaps)
     return templates.TemplateResponse(
         "services/_add_result.html",
         {"request": request, "services": services, "error": error},
