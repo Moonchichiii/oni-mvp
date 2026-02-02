@@ -1,0 +1,13 @@
+{
+  "name": "oni-mvp-frontend",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  },
+  "scripts": {
+    "dev": "bunx @tailwindcss/cli -i ./src/app.css -o ../app/web/static/app.css --watch",
+    "build": "bunx @tailwindcss/cli -i ./src/app.css -o ../app/web/static/app.css --minify"
+  }
+}

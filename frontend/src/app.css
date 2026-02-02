@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@reference "tailwindcss";
+
+/* ========== Fonts ========== */
+@font-face {
+  font-family: "Clash Display";
+  src: url("/static/fonts/clash-display/ClashDisplay-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/static/fonts/general-sans/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========== Base ========== */
+@layer base {
+  :root {
+    --font-sans: "General Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    --font-display: "Clash Display", ui-sans-serif, system-ui;
+
+    /* tiny accent (keep it subtle) */
+    --accent: 12 129 123; /* teal-ish in rgb parts */
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    @apply text-slate-900;
+  }
+}
+
+/* ========== Components ========== */
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-5xl px-4;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+
+  .muted {
+    @apply text-slate-600;
+  }
+
+  .navlink {
+    @apply rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-50;
+  }
+
+  .btn-primary {
+    @apply border-transparent bg-black text-white hover:bg-slate-800;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:ring-2;
+    /* tiny accent ring */
+    box-shadow: 0 0 0 0 rgba(var(--accent), 0);
+  }
+  .input:focus {
+    box-shadow: 0 0 0 3px rgba(var(--accent), 0.20);
+    border-color: rgba(var(--accent), 0.7);
+  }
+
+  .accent-dot {
+    @apply inline-block size-2 rounded-full;
+    background: rgb(var(--accent));
+  }
+}
