@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.core.logging import configure_logging, log
@@ -26,7 +27,14 @@ def create_app() -> FastAPI:
     log.info("startup supabase_connected=%s", sb_ok)
 
     app = FastAPI()
+
+    # Static assets served at /static/*
     app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+
+    # Silence bots + browsers asking for /favicon.ico at root
+    @app.get("/favicon.ico", include_in_schema=False)
+    def favicon() -> FileResponse:
+        return FileResponse(STATIC_DIR / "favicon.ico")
 
     app.include_router(health_router)
     app.include_router(home_router)

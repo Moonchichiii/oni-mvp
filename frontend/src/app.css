@@ -4,7 +4,7 @@
 /* ========== Fonts ========== */
 @font-face {
   font-family: "Clash Display";
-  src: url("/static/fonts/clash-display/ClashDisplay-Variable.woff2") format("woff2");
+    src:url("/static/fonts/ClashDisplay-Variable.woff") format("woff");
   font-weight: 200 700;
   font-style: normal;
   font-display: swap;
@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: "General Sans";
-  src: url("/static/fonts/general-sans/GeneralSans-Variable.woff2") format("woff2");
+   src:url("/static/fonts/GeneralSans-Variable.woff2") format("woff2");
   font-weight: 200 700;
   font-style: normal;
   font-display: swap;

@@ -5,7 +5,7 @@ from fastapi.responses import HTMLResponse
 
 from app.domain.models import ServiceCreate
 from app.infra.supabase import get_supabase_client
-from app.services.services_repo import ServicesRepo
+from app.services.repo import ServicesRepo
 from app.web.templates import templates
 
 router = APIRouter(prefix="/services", tags=["services"])
