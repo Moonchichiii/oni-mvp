@@ -1,19 +1,14 @@
 from __future__ import annotations
 
-from pathlib import Path
-
 from fastapi import APIRouter, Form, Request
 from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
 
 from app.domain.models import ServiceCreate
+from app.infra.supabase import get_supabase_client
 from app.services.services_repo import ServicesRepo
-from app.services.supabase_client import get_supabase_client
+from app.web.templates import templates
 
 router = APIRouter(prefix="/services", tags=["services"])
-
-BASE_DIR = Path(__file__).resolve().parents[2]
-templates = Jinja2Templates(directory=str(BASE_DIR / "web" / "templates"))
 
 
 @router.get("", response_class=HTMLResponse)

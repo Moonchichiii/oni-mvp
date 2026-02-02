@@ -1,19 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>HTMX sanity check</h1>
+  <div class="mx-auto max-w-2xl">
+    <h1 class="text-3xl font-semibold tracking-tight">
+      ONI MVP
+    </h1>
 
-  <p>
-    Count: <span id="count">{{ count }}</span>
-  </p>
+    <p class="mt-3 text-slate-600">
+      Server-rendered FastAPI + Jinja2 + HTMX, with Supabase for auth + data.
+    </p>
 
-  <input type="hidden" name="count" value="{{ count }}"/>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a class="btn btn-primary" href="/services">
+        Go to Services
+      </a>
 
-  <button
-    hx-post="/increment"
-    hx-include="[name='count']"
-    hx-target="#count"
-    hx-swap="outerHTML"
-  >
-    Increment
-  </button>
+      <a class="btn" href="/health">
+        Health check
+      </a>
+    </div>
+
+    <div class="mt-10 rounded-lg border border-slate-200 p-4">
+      <div class="text-sm font-medium">Dev notes</div>
+      <ul class="mt-2 list-disc pl-5 text-sm text-slate-600">
+        <li>Tailwind compiled with Bun → served by FastAPI</li>
+        <li>Supabase connectivity checked at startup</li>
+        <li>Next: services delete + duplicate handling + HTMX errors</li>
+      </ul>
+    </div>
+  </div>
 {% endblock %}

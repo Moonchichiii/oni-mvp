@@ -1,22 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Services</h1>
+  <div class="mx-auto max-w-2xl py-10">
+    <h1 class="text-2xl font-semibold">Services</h1>
 
-  <form
-    hx-post="/services/add"
-    hx-target="#services-list"
-    hx-swap="innerHTML"
-  >
-    <label>
-      Name
-      <input name="name" required minlength="1" maxlength="120" />
-    </label>
-    <button type="submit">Add</button>
-  </form>
+    <form
+      class="mt-6 flex gap-3"
+      hx-post="/services/add"
+      hx-target="#services-list"
+      hx-swap="innerHTML"
+    >
+      <input class="input flex-1" name="name" required minlength="1" maxlength="120" placeholder="Service name" />
+      <button class="btn btn-primary" type="submit">Add</button>
+    </form>
 
-  <hr />
-
-  <div id="services-list">
-    {% include "services/_list.html" %}
+    <div class="mt-8" id="services-list">
+      {% include "services/_list.html" %}
+    </div>
   </div>
 {% endblock %}

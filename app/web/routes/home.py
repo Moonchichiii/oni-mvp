@@ -1,15 +1,11 @@
-from pathlib import Path
-
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
+
+from app.web.templates import templates
 
 router = APIRouter()
 
-BASE_DIR = Path(__file__).resolve().parents[2]
-templates = Jinja2Templates(directory=str(BASE_DIR / "web" / "templates"))
-
 
 @router.get("/", response_class=HTMLResponse)
-def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "count": 0})
+def home(request: Request) -> HTMLResponse:
+    return templates.TemplateResponse("index.html", {"request": request})
