@@ -6,12 +6,18 @@
     <form
       class="mt-6 flex gap-3"
       hx-post="/services/add"
-      hx-target="#services-list"
-      hx-swap="innerHTML"
+      hx-swap="none"
+      hx-indicator="#services-spinner"
     >
       <input class="input flex-1" name="name" required minlength="1" maxlength="120" placeholder="Service name" />
       <button class="btn btn-primary" type="submit">Add</button>
     </form>
+
+    <span id="services-spinner" class="muted text-sm" style="display:none;">Saving…</span>
+
+    <div id="services-errors">
+      {% include "services/_errors.html" %}
+    </div>
 
     <div class="mt-8" id="services-list">
       {% include "services/_list.html" %}
