@@ -3,44 +3,50 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-     <meta name="theme-color" content="#ffffff" />
-<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
-<link rel="manifest" href="/static/site.webmanifest">
-
-    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-
-   <link rel="stylesheet" href="/static/app.css?v=1" />
-
+    <meta name="description" content="oni-mvp - A modern web application built with FastAPI, HTMX, and Supabase" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="/static/fonts/GeneralSans-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/static/fonts/ClashDisplay-Variable.woff" as="font" type="font/woff" crossorigin />
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
+    <link rel="manifest" href="/static/site.webmanifest" />
+    <link rel="stylesheet" href="/static/app.css?v=1" />
     <title>{{ title or "oni-mvp" }}</title>
   </head>
 
   <body>
-  <header class="border-b border-slate-200 bg-white">
-    <div class="container flex items-center justify-between py-4">
-      <a href="/" class="flex items-center gap-2">
-        <span class="text-base font-semibold tracking-tight" style="font-family: var(--font-display);">
-          oni-mvp
-        </span>
-        <span class="accent-dot"></span>
-      </a>
+    <header class="border-b border-slate-200 bg-white">
+      <div class="container flex items-center justify-between py-4">
+        <a href="/" class="flex items-center gap-2" style="min-width: 48px; min-height: 48px; display: flex; align-items: center;">
+          <span class="text-base font-semibold tracking-tight" style="font-family: var(--font-display);">
+            oni-mvp
+          </span>
+          <span class="accent-dot"></span>
+        </a>
 
-      <nav class="flex items-center gap-1">
-        <a href="/services" class="navlink">Services</a>
-        <a href="/health" class="navlink">Health</a>
-      </nav>
-    </div>
-  </header>
+        <nav class="flex items-center gap-1">
+          <a href="/services" class="navlink" style="min-width: 48px; min-height: 48px; display: inline-flex; align-items: center; padding: 0.5rem;">Services</a>
+          <a href="/health" class="navlink" style="min-width: 48px; min-height: 48px; display: inline-flex; align-items: center; padding: 0.5rem;">Health</a>
+        </nav>
+      </div>
+    </header>
 
-  <main class="container py-10">
-    {% block content %}{% endblock %}
-  </main>
+    <main class="container py-10">
+      {% block content %}{% endblock %}
+    </main>
 
-  <footer class="py-8">
-    <div class="container text-xs text-slate-500">
-      oni-mvp • FastAPI + HTMX + Supabase
-    </div>
-  </footer>
-</body>
+    <footer class="py-8">
+      <div class="container text-xs text-slate-500">
+        oni-mvp • FastAPI + HTMX + Supabase
+      </div>
+    </footer>
 
+    <script defer src="https://unpkg.com/htmx.org@1.9.12"></script>
+  </body>
 </html>
