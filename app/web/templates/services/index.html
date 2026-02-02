@@ -4,16 +4,25 @@
     <h1 class="text-2xl font-semibold">Services</h1>
 
     <form
-      class="mt-6 flex gap-3"
-      hx-post="/services/add"
-      hx-swap="none"
-      hx-indicator="#services-spinner"
-    >
+  class="mt-6 flex gap-3"
+  hx-post="/services/add"
+  hx-swap="none"
+  hx-indicator="#services-spinner"
+  hx-on::after-request="this.reset()"
+>
+
       <input class="input flex-1" name="name" required minlength="1" maxlength="120" placeholder="Service name" />
       <button class="btn btn-primary" type="submit">Add</button>
     </form>
 
-    <span id="services-spinner" class="muted text-sm" style="display:none;">Saving…</span>
+    <span
+  id="services-spinner"
+  class="muted text-sm"
+  style="display:none;"
+  aria-live="polite"
+>
+  Saving…
+</span>
 
     <div id="services-errors">
       {% include "services/_errors.html" %}
